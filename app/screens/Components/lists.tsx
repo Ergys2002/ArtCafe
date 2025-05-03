@@ -30,7 +30,6 @@ const ListScreen = () => {
             <View
                 style={{
                     flex:1,
-                    //backgroundColor:colors.background,
                 }}
             >
                 <Header 
