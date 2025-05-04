@@ -72,9 +72,9 @@ const initialHistory: PointsTransaction[] = [
         id: "1",
         date: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
         amount: 126,
-        description: "Purchase of Hot Creamy Cappuccino Latte Ombe",
+        description: "Purchase of Hot Creamy Cappuccino Latte Art",
         productId: "0",
-        productName: "Hot Creamy Cappuccino Latte Ombe",
+        productName: "Hot Creamy Cappuccino Latte Art",
     },
     {
         id: "2",

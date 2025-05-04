@@ -53,21 +53,21 @@ const CardStyleData = [
     {
         id: "0",
         image: IMAGES.item1,
-        title: "Hot Creamy Cappuccino Latte Ombe",
+        title: "Hot Creamy Cappuccino Latte Art",
         price: "$12.6",
         countnumber: "50 Pts",
     },
     {
         id: "1",
         image: IMAGES.item2,
-        title: "Creamy Mocha Ome Coffee",
+        title: "Creamy Mocha Art Coffee",
         price: "$13.6",
         countnumber: "50 Pts",
     },
     {
         id: "2",
         image: IMAGES.item3,
-        title: "Original Latte Ombe Hot Coffee",
+        title: "Original Latte Art Hot Coffee",
         price: "$12.6",
         countnumber: "50 Pts",
     },
@@ -157,7 +157,7 @@ export const Home = ({ navigation }: HomeScreenProps) => {
                                     color: colors.title,
                                 }}
                             >
-                                Williams
+                                Redjon
                             </Text>
                         </View>
                         <View

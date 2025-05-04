@@ -30,40 +30,10 @@ const MenuItems = [
         highlight: true,
     },
     {
-        id: "3",
-        icon: IMAGES.components,
-        name: "Components",
-        navigate: "Components",
-    },
-    {
-        id: "4",
-        icon: IMAGES.star,
-        name: "Featured",
-        navigate: "Writereview",
-    },
-    {
-        id: "5",
-        icon: IMAGES.heart,
-        name: "Wishlist",
-        navigate: "Wishlist",
-    },
-    {
         id: "6",
         icon: IMAGES.order,
         name: "My Orders",
         navigate: "Myorder",
-    },
-    {
-        id: "7",
-        icon: IMAGES.shopping,
-        name: "My Cart",
-        navigate: "MyCart",
-    },
-    {
-        id: "8",
-        icon: IMAGES.chat,
-        name: "Chat List",
-        navigate: "Chat",
     },
     {
         id: "9",
@@ -251,17 +221,9 @@ const DrawerMenu = ({ navigation }: any) => {
                             color: "#868686",
                         }}
                     >
-                        Ombe Coffee App
+                        Art Coffee App
                     </Text>
-                    <Text
-                        style={{
-                            ...FONTS.fontMedium,
-                            fontSize: 12,
-                            color: "#B1B1C3",
-                        }}
-                    >
-                        App Version 1.0.0
-                    </Text>
+                    
                 </View>
             </View>
         </ScrollView>

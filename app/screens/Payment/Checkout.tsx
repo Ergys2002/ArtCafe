@@ -78,11 +78,11 @@ const Checkout =  ({navigation} : CheckoutScreenProps) => {
                         <View style={styles.card}>
                             <View style={GlobalStyleSheet.flex}>
                                 <Text style={[styles.title2,{color:colors.title}]}>Price (5 Items)</Text>
-                                <Text style={[styles.title2,{color:colors.title}]}>$21299</Text>
+                                <Text style={[styles.title2,{color:colors.title}]}>$27.95</Text>
                             </View>
                             <View style={[GlobalStyleSheet.flex,{paddingVertical:10}]}>
                                 <Text style={[styles.title2,{color:colors.title}]}>Discount</Text>
-                                <Text style={[styles.title2,{color:colors.title}]}>$4000</Text>
+                                <Text style={[styles.title2,{color:colors.title}]}>$3.50</Text>
                             </View>
                             <View style={GlobalStyleSheet.flex}>
                                 <Text style={[styles.title2,{color:colors.title}]}>Delivery Charges</Text>
@@ -91,7 +91,7 @@ const Checkout =  ({navigation} : CheckoutScreenProps) => {
                         </View>
                         <View style={[GlobalStyleSheet.flex,{paddingVertical:5,}]}>
                             <Text style={[styles.title1,{color:colors.title}]}>Total Amount</Text>
-                            <Text style={[styles.title1,{color:'#8ABE12'}]}>$17299</Text>
+                            <Text style={[styles.title1,{color:'#8ABE12'}]}>$24.45</Text>
                         </View>
                     </View>
                 </View>
