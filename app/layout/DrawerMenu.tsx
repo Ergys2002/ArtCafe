@@ -24,48 +24,55 @@ const MenuItems = [
     },
     {
         id: "2",
+        icon: IMAGES.gift,
+        name: "Loyalty Rewards",
+        navigate: "Rewards",
+        highlight: true,
+    },
+    {
+        id: "3",
         icon: IMAGES.components,
         name: "Components",
         navigate: "Components",
     },
     {
-        id: "3",
+        id: "4",
         icon: IMAGES.star,
         name: "Featured",
         navigate: "Writereview",
     },
     {
-        id: "4",
+        id: "5",
         icon: IMAGES.heart,
         name: "Wishlist",
         navigate: "Wishlist",
     },
     {
-        id: "5",
+        id: "6",
         icon: IMAGES.order,
         name: "My Orders",
         navigate: "Myorder",
     },
     {
-        id: "6",
+        id: "7",
         icon: IMAGES.shopping,
         name: "My Cart",
         navigate: "MyCart",
     },
     {
-        id: "7",
+        id: "8",
         icon: IMAGES.chat,
         name: "Chat List",
         navigate: "Chat",
     },
     {
-        id: "8",
+        id: "9",
         icon: IMAGES.user3,
         name: "Profile",
         navigate: "Profile",
     },
     {
-        id: "9",
+        id: "10",
         icon: IMAGES.logout,
         name: "Logout",
         navigate: "SingIn",
@@ -168,6 +175,9 @@ const DrawerMenu = ({ navigation }: any) => {
                                             borderRadius: 10,
                                             alignItems: "center",
                                             justifyContent: "center",
+                                            backgroundColor: data.highlight
+                                                ? "rgba(22, 192, 51, 0.1)"
+                                                : "transparent",
                                         }}
                                     >
                                         <Image
@@ -176,12 +186,12 @@ const DrawerMenu = ({ navigation }: any) => {
                                                 height: 24,
                                                 width: 24,
                                                 tintColor:
-                                                    data.id == "9"
+                                                    data.id == "10"
                                                         ? "#FF8484"
-                                                        : data.id === "0"
+                                                        : data.id === "0" ||
+                                                          data.highlight
                                                         ? COLORS.primary
                                                         : "#BDBDBD",
-                                                //marginRight:14,
                                                 resizeMode: "contain",
                                             }}
                                         />
@@ -194,7 +204,8 @@ const DrawerMenu = ({ navigation }: any) => {
                                                 fontSize: 16,
                                                 opacity: 0.6,
                                             },
-                                            data.id === "0" && {
+                                            (data.id === "0" ||
+                                                data.highlight) && {
                                                 ...FONTS.fontSemiBold,
                                                 fontSize: 16,
                                                 color: COLORS.primary,
@@ -203,6 +214,27 @@ const DrawerMenu = ({ navigation }: any) => {
                                     >
                                         {data.name}
                                     </Text>
+                                    {data.highlight && (
+                                        <View
+                                            style={{
+                                                backgroundColor: COLORS.primary,
+                                                paddingHorizontal: 8,
+                                                paddingVertical: 3,
+                                                borderRadius: 12,
+                                                marginLeft: 5,
+                                            }}
+                                        >
+                                            <Text
+                                                style={{
+                                                    ...FONTS.fontMedium,
+                                                    fontSize: 10,
+                                                    color: "#FFFFFF",
+                                                }}
+                                            >
+                                                NEW
+                                            </Text>
+                                        </View>
+                                    )}
                                 </View>
                             </TouchableOpacity>
                         );

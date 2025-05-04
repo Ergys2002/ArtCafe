@@ -17,7 +17,8 @@ const button = `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.
 const pic1 = require('../../assets/images/small/pic1.jpg');
 const pic2 = require('../../assets/images/small/pic2.jpg');
 const pic3 = require('../../assets/images/small/pic3.jpg');
-const pic4 = require('../../assets/images/small/pic4.jpg');
+const pic4 = require('../../assets/images/item2/pic1.png');
+
 
 
 const ListScreen = () => {
