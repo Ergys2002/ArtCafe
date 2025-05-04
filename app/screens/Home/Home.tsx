@@ -20,6 +20,7 @@ import { addTowishList } from "../../redux/reducer/wishListReducer";
 import ImageSwiper from "../../components/ImageSwiper";
 import Cardstyle4 from "../../components/Card/Cardstyle4";
 import { openDrawer } from "../../redux/actions/drawerAction";
+import { sampleBusinesses } from "../../models/BusinessModel";
 
 const ArrivalData = [
     {
@@ -120,9 +121,6 @@ const SwiperData = [
 type HomeScreenProps = StackScreenProps<RootStackParamList, "Home">;
 
 export const Home = ({ navigation }: HomeScreenProps) => {
-    // const wishList = useSelector((state:any) => state.wishList.wishList);
-    // console.log(wishList);
-
     const dispatch = useDispatch();
 
     const theme = useTheme();
@@ -308,6 +306,144 @@ export const Home = ({ navigation }: HomeScreenProps) => {
                         <ImageSwiper data={SwiperData} />
                     </View>
                 </View>
+
+                {/* Coffee Shops Section */}
+                <View
+                    style={[
+                        GlobalStyleSheet.container,
+                        { paddingHorizontal: 0, paddingTop: 10 },
+                    ]}
+                >
+                    <View
+                        style={[
+                            GlobalStyleSheet.flex,
+                            { paddingHorizontal: 30 },
+                        ]}
+                    >
+                        <Text
+                            style={[
+                                styles.brandsubtitle3,
+                                { fontSize: 18, color: colors.title },
+                            ]}
+                        >
+                            Coffee Shops
+                        </Text>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("BusinessList")}
+                        >
+                            <Text
+                                style={[
+                                    styles.brandsubtitle3,
+                                    { fontSize: 16, color: COLORS.primary },
+                                ]}
+                            >
+                                View All
+                            </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View
+                        style={{
+                            marginHorizontal: -15,
+                            paddingHorizontal: 15,
+                            paddingTop: 20,
+                        }}
+                    >
+                        <ScrollView
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                            contentContainerStyle={{ paddingHorizontal: 30 }}
+                        >
+                            <View
+                                style={{
+                                    flexDirection: "row",
+                                    alignItems: "center",
+                                    gap: 15,
+                                    marginRight: 10,
+                                    marginBottom: 20,
+                                }}
+                            >
+                                {sampleBusinesses.map((business, index) => {
+                                    return (
+                                        <TouchableOpacity
+                                            activeOpacity={0.8}
+                                            onPress={() => {
+                                                navigation.navigate(
+                                                    "BusinessDetails",
+                                                    { businessId: business.id }
+                                                );
+                                            }}
+                                            key={index}
+                                            style={[
+                                                styles.businessCard,
+                                                {
+                                                    backgroundColor: theme.dark
+                                                        ? colors.background
+                                                        : colors.card,
+                                                    borderColor: "#EFEFEF",
+                                                    shadowColor:
+                                                        "rgba(4,118,78,.6)",
+                                                },
+                                            ]}
+                                        >
+                                            <Image
+                                                style={styles.businessLogo}
+                                                source={business.logo}
+                                            />
+                                            <Text
+                                                style={{
+                                                    ...FONTS.fontMedium,
+                                                    fontSize: 16,
+                                                    color: colors.title,
+                                                    marginTop: 10,
+                                                    textAlign: "center",
+                                                }}
+                                            >
+                                                {business.name}
+                                            </Text>
+                                            <View
+                                                style={styles.ratingContainer}
+                                            >
+                                                <Feather
+                                                    name="star"
+                                                    size={12}
+                                                    color={COLORS.primary}
+                                                />
+                                                <Text style={styles.ratingText}>
+                                                    {business.rating}
+                                                </Text>
+                                            </View>
+                                        </TouchableOpacity>
+                                    );
+                                })}
+                                <TouchableOpacity
+                                    activeOpacity={0.8}
+                                    onPress={() =>
+                                        navigation.navigate("ScanQR")
+                                    }
+                                    style={[
+                                        styles.scanCard,
+                                        {
+                                            backgroundColor: COLORS.primary,
+                                        },
+                                    ]}
+                                >
+                                    <View style={styles.scanIconContainer}>
+                                        <Feather
+                                            name="camera"
+                                            size={24}
+                                            color="#FFFFFF"
+                                        />
+                                    </View>
+                                    <Text style={styles.scanText}>Scan QR</Text>
+                                    <Text style={styles.scanSubtext}>
+                                        Find menu
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </ScrollView>
+                    </View>
+                </View>
+
                 <View
                     style={[
                         GlobalStyleSheet.container,
@@ -534,7 +670,6 @@ const styles = StyleSheet.create({
         ...FONTS.fontSemiBold,
         fontSize: 24,
         color: "#8ABE12",
-        //textAlign:'right'
     },
     colorCard: {},
     colorCardTitle: {
@@ -594,6 +729,80 @@ const styles = StyleSheet.create({
     },
     loyaltyArrow: {
         marginLeft: 10,
+    },
+    businessCard: {
+        backgroundColor: COLORS.card,
+        borderRadius: 15,
+        padding: 15,
+        borderWidth: 1,
+        borderColor: "#EFEFEF",
+        shadowColor: "rgba(4,118,78,.6)",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 4,
+        width: 120,
+        alignItems: "center",
+    },
+    businessLogo: {
+        width: 70,
+        height: 70,
+        borderRadius: 35,
+        resizeMode: "cover",
+    },
+    ratingContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        backgroundColor: "rgba(134, 82, 255, 0.1)",
+        paddingHorizontal: 8,
+        paddingVertical: 4,
+        borderRadius: 12,
+        marginTop: 5,
+    },
+    ratingText: {
+        ...FONTS.fontMedium,
+        fontSize: 12,
+        color: COLORS.primary,
+        marginLeft: 4,
+    },
+    scanCard: {
+        backgroundColor: COLORS.primary,
+        borderRadius: 15,
+        padding: 15,
+        width: 120,
+        alignItems: "center",
+        justifyContent: "center",
+        shadowColor: COLORS.primary,
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+        elevation: 4,
+    },
+    scanIconContainer: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+        backgroundColor: "rgba(255,255,255,0.2)",
+        alignItems: "center",
+        justifyContent: "center",
+        marginBottom: 10,
+    },
+    scanText: {
+        ...FONTS.fontMedium,
+        fontSize: 16,
+        color: COLORS.card,
+    },
+    scanSubtext: {
+        ...FONTS.fontRegular,
+        fontSize: 12,
+        color: COLORS.card,
+        marginTop: 2,
     },
 });
 

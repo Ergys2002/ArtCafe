@@ -3,7 +3,7 @@ import { BottomTabParamList } from "./BottomTabParamList";
 
 export type RootStackParamList = {
     DrawerNavigation: NavigatorScreenParams<BottomTabParamList>;
-    openDrawer:undefined;
+    openDrawer: undefined;
     Demo: undefined;
     ChooseLanguage: undefined;
     QrCodeScanner: undefined;
@@ -74,4 +74,8 @@ export type RootStackParamList = {
     TabStyle2: undefined;
     TabStyle3: undefined;
     TabStyle4: undefined;
+    // Business related screens
+    BusinessList: undefined;
+    BusinessDetails: { businessId: string };
+    ScanQR: undefined;
 };
